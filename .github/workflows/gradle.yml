@@ -37,9 +37,18 @@ jobs:
     - name: Setup gradlew
       run: chmod +x gradlew
 
+      
+    - name: Cache Gradle dependencies
+      uses: actions/cache@v3
+      with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          
+          restore-keys: ${{ runner.os }}-gradle
+          
 #execute run grdle
-    - name: Execute test
-      run: ./gradlew test
+    - name: Build with gradle
+      run: ./gradlew build
 
 
     
