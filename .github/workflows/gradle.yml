@@ -39,7 +39,7 @@ jobs:
 
 #execute run grdle
     - name: Execute test
-      run: ./gradlew cucumber
+      run: ./gradlew test
 
 
     
